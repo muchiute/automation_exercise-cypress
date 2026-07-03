@@ -43,12 +43,6 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 - [x] Validação de status code
 - [x] Validação do nome da lista
 
-## Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-- [VsCode](https://code.visualstudio.com/)
-- [Cypress](https://www.cypress.io/)
-
 ## Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
