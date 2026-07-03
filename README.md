@@ -4,7 +4,7 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 
 ## Projeto no Github
 
-[Github](link do git)
+[Github](https://github.com/muchiute/automation_exercise-cypress)
 
 ## Descrição do Projeto
 
