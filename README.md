@@ -61,7 +61,7 @@ Antes de executar o projeto, é necessário ter instalado:
 
 ## 🚀 Instalação do projeto
 
-```bash
+
 git clone https://github.com/muchiute/automation_exercise-cypress.git
 cd automation_exercise-cypress
 npm install
@@ -73,9 +73,9 @@ npm install
 - `npx cypress open` (Modo: Interactive Mode com interface gráfica)
 
 
-#Estratégia de testes
+# Estratégia de testes
 
-##Este projeto aplica boas práticas de automação:
+## Este projeto aplica boas práticas de automação:
 
 - Page Object Model (POM)
 - Factory Pattern para dados dinâmicos
@@ -86,14 +86,14 @@ npm install
 
 --- 
 
-##🧪 Massa de dados
+## 🧪 Massa de dados
 Dados estáticos: fixtures/
 Dados dinâmicos: Faker.js
 Geração de usuários únicos para testes de cadastro
 
 ---
 
-##📈 Evidências de execução
+## 📈 Evidências de execução
 
 O projeto gera automaticamente:
 
