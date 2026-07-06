@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:headless": "cypress run",
-    "test": "cypress open",
-    "generate-report": "npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports/final"
-  },
+  "test:headless": "cypress run",
+  "test": "cypress open",
+  "test:login": "cypress run --env tags='@login'",
+  "test:api": "cypress run --env tags='@api'",
+  "test:smoke": "cypress run --env tags='@smoke'",
+  "generate-report": "npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports/final"
+},
   "author": "",
   "license": "ISC",
   "description": "",

@@ -1,22 +1,28 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
 import "./commands";
 import "cypress-mochawesome-reporter/register";
 import "cypress-log-to-output";
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+before(() => {
+  cy.log("🚀 Iniciando execução da suíte");
+});
+
+beforeEach(() => {
+  // limpa estado do browser
+  cy.clearCookies();
+  cy.clearLocalStorage();
+
+  cy.window().then((win) => {
+    win.sessionStorage.clear();
+  });
+  cy.visit("/");
+});
+
+afterEach(function () {
+  // só tira screenshot se falhar
+  if (this.currentTest.state === "failed") {
+    cy.screenshot(
+      `FAIL - ${Cypress.spec.name} - ${this.currentTest.title}`,
+      { capture: "runner" }
+    );
+  }
+});

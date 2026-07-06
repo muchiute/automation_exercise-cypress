@@ -1,9 +1,9 @@
+import ApiBase from "./ApiBase";
+
 class TrelloApi {
   getAction() {
-    return cy.request({
-      method: "GET",
-      url: Cypress.env("apiUrl"),
-    });
+    return ApiBase.request("GET", Cypress.env("apiUrl"));
   }
 }
+
 export default new TrelloApi();
