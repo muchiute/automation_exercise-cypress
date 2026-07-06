@@ -9,6 +9,7 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 ## Descrição do Projeto
 
 ### WEB
+
 - Realiza login com sucesso e valida usuário autenticado;
 - Valida login com credenciais inválidas;
 - Realiza cadastro de usuário com dados dinâmicos (Faker);
@@ -19,6 +20,7 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 - Valida produtos no carrinho durante o checkout.
 
 ### API (Trello)
+
 - Realiza requisição GET na API do Trello;
 - Valida status code 200;
 - Valida retorno da lista (`list`) no response;
@@ -29,6 +31,7 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 ## Features
 
 ### WEB
+
 - [x] Login com sucesso
 - [x] Login sem sucesso
 - [x] Cadastro de usuário com sucesso
@@ -39,6 +42,7 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 - [x] Checkout e pagamento
 
 ### API
+
 - [x] GET na API do Trello
 - [x] Validação de status code
 - [x] Validação do nome da lista
@@ -61,7 +65,6 @@ Antes de executar o projeto, é necessário ter instalado:
 
 ## 🚀 Instalação do projeto
 
-
 git clone https://github.com/muchiute/automation_exercise-cypress.git
 cd automation_exercise-cypress
 npm install
@@ -71,7 +74,6 @@ npm install
 - `npm install` (comando para instalar as dependências antes de executar os comandos abaixo)
 - `npx cypress run` (Modo: Headless sem interface gráfica)
 - `npx cypress open` (Modo: Interactive Mode com interface gráfica)
-
 
 # Estratégia de testes
 
@@ -84,12 +86,13 @@ npm install
 - Validações de UI e API
 - Uso de dados dinâmicos para evitar dependências
 
---- 
+---
 
 ## 🧪 Massa de dados
-Dados estáticos: fixtures/
-Dados dinâmicos: Faker.js
-Geração de usuários únicos para testes de cadastro
+
+- Dados estáticos: fixtures/
+- Dados dinâmicos: Faker.js
+- Geração de usuários únicos para testes de cadastro
 
 ---
 
@@ -97,5 +100,5 @@ Geração de usuários únicos para testes de cadastro
 
 O projeto gera automaticamente:
 
-Screenshots em caso de falha
-Vídeos da execução dos testes
+- Screenshots em caso de falha
+- Vídeos da execução dos testes
