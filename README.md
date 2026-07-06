@@ -43,14 +43,59 @@ Este projeto contém testes automatizados utilizando Cypress para testes de API 
 - [x] Validação de status code
 - [x] Validação do nome da lista
 
-## Tecnologias
+---
 
-As seguintes ferramentas foram usadas na construção do projeto:
+## ⚙️ Tecnologias e versões utilizadas
+
+Antes de executar o projeto, é necessário ter instalado:
+
+- [Node.js >= 18]
+- [Cypress 13.x]
+- [JavaScript (ES6+)]
+- [Faker.js]
+- [Git]
 - [VsCode](https://code.visualstudio.com/)
 - [Cypress](https://www.cypress.io/)
+
+---
+
+## 🚀 Instalação do projeto
+
+```bash
+git clone https://github.com/muchiute/automation_exercise-cypress.git
+cd automation_exercise-cypress
+npm install
 
 ## Comandos para execução dos testes
 
 - `npm install` (comando para instalar as dependências antes de executar os comandos abaixo)
 - `npx cypress run` (Modo: Headless sem interface gráfica)
 - `npx cypress open` (Modo: Interactive Mode com interface gráfica)
+
+
+#Estratégia de testes
+
+##Este projeto aplica boas práticas de automação:
+
+- Page Object Model (POM)
+- Factory Pattern para dados dinâmicos
+- Separação entre testes e lógica
+- Reutilização via Custom Commands
+- Validações de UI e API
+- Uso de dados dinâmicos para evitar dependências
+
+--- 
+
+##🧪 Massa de dados
+Dados estáticos: fixtures/
+Dados dinâmicos: Faker.js
+Geração de usuários únicos para testes de cadastro
+
+---
+
+##📈 Evidências de execução
+
+O projeto gera automaticamente:
+
+Screenshots em caso de falha
+Vídeos da execução dos testes
