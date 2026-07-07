@@ -1,47 +1,59 @@
+import { CadastroLocators } from "./locators/CadastroLocators";
+
 class CadastroPage {
   acessarSite() {
     cy.visit("/");
   }
 
   clicarSignupLogin() {
-    cy.contains("Signup / Login").click();
+    cy.contains(CadastroLocators.signupLogin)
+      .should("be.visible")
+      .click();
   }
 
   preencherNome(nome) {
-    cy.get('[data-qa="signup-name"]').type(nome);
+    cy.safeType(CadastroLocators.signupName, nome);
   }
 
   preencherEmail(email) {
-    cy.get('[data-qa="signup-email"]').type(email);
+    cy.safeType(CadastroLocators.signupEmail, email);
   }
 
   clicarSignup() {
-    cy.get('[data-qa="signup-button"]').click();
+    cy.safeClick(CadastroLocators.signupButton);
   }
 
   preencherFormulario(usuario) {
-    cy.get("#id_gender1").check();
-    cy.get("#password").type(usuario.senha);
-    cy.get("#days").select(usuario.dia);
-    cy.get("#months").select(usuario.mes);
-    cy.get("#years").select(usuario.ano);
-    cy.get("#first_name").type(usuario.firstName);
-    cy.get("#last_name").type(usuario.lastName);
-    cy.get("#company").type(usuario.company);
-    cy.get("#address1").type(usuario.address);
-    cy.get("#country").select(usuario.country);
-    cy.get("#state").type(usuario.state);
-    cy.get("#city").type(usuario.city);
-    cy.get("#zipcode").type(usuario.zipcode);
-    cy.get("#mobile_number").type(usuario.mobile);
+    cy.get(CadastroLocators.genderMale)
+      .should("be.visible")
+      .check();
+
+    cy.safeType(CadastroLocators.password, usuario.senha);
+
+    cy.safeSelect(CadastroLocators.day, usuario.dia);
+    cy.safeSelect(CadastroLocators.month, usuario.mes);
+    cy.safeSelect(CadastroLocators.year, usuario.ano);
+
+    cy.safeType(CadastroLocators.firstName, usuario.firstName);
+    cy.safeType(CadastroLocators.lastName, usuario.lastName);
+    cy.safeType(CadastroLocators.company, usuario.company);
+    cy.safeType(CadastroLocators.address, usuario.address);
+
+    cy.safeSelect(CadastroLocators.country, usuario.country);
+
+    cy.safeType(CadastroLocators.state, usuario.state);
+    cy.safeType(CadastroLocators.city, usuario.city);
+    cy.safeType(CadastroLocators.zipcode, usuario.zipcode);
+    cy.safeType(CadastroLocators.mobile, usuario.mobile);
   }
 
   clicarCriarConta() {
-    cy.get('[data-qa="create-account"]').click();
+    cy.safeClick(CadastroLocators.createAccount);
   }
 
   validarContaCriada() {
-    cy.contains("Account Created!").should("be.visible");
+    cy.contains(CadastroLocators.accountCreated)
+      .should("be.visible");
   }
 }
 

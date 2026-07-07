@@ -1,18 +1,20 @@
+import { LoginLocators } from "./locators/LoginLocators";
+
 class LoginPage {
   acessarLogin() {
     cy.visit("/login");
   }
 
   informarEmail(email) {
-    cy.get('[data-qa="login-email"]').type(email);
+    cy.safeType(LoginLocators.email, email);
   }
 
   informarSenha(senha) {
-    cy.get('[data-qa="login-password"]').type(senha);
+    cy.safeType(LoginLocators.password, senha);
   }
 
   clicarEntrar() {
-    cy.get('[data-qa="login-button"]').click();
+    cy.safeClick(LoginLocators.loginButton);
   }
 
   realizarLogin(email, senha) {
@@ -22,7 +24,8 @@ class LoginPage {
   }
 
   validarLogin() {
-    cy.contains("Logged in as").should("be.visible");
+    cy.contains(LoginLocators.loggedUser)
+      .should("be.visible");
   }
 }
 

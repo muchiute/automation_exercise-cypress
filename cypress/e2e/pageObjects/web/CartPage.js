@@ -1,30 +1,39 @@
+import { CartLocators } from "./locators/CartLocators";
+
 class CartPage {
+
   validarProdutoCarrinho(produto) {
-    cy.contains(produto).should("be.visible");
+    cy.contains(produto)
+      .should("be.visible");
   }
 
   clicarCheckout() {
-    cy.contains("Proceed To Checkout").click();
+    cy.contains(CartLocators.proceedToCheckout)
+      .should("be.visible")
+      .click();
   }
 
   clicarPlaceOrder() {
-    cy.contains("Place Order").click();
+    cy.contains(CartLocators.placeOrder)
+      .should("be.visible")
+      .click();
   }
 
   preencherPagamento(usuario) {
-    cy.get('[data-qa="name-on-card"]').type(usuario.nomeCartao);
-    cy.get('[data-qa="card-number"]').type(usuario.numeroCartao);
-    cy.get('[data-qa="cvc"]').type(usuario.cvc);
-    cy.get('[data-qa="expiry-month"]').type(usuario.mesValidade);
-    cy.get('[data-qa="expiry-year"]').type(usuario.anoValidade);
+    cy.safeType(CartLocators.cardName, usuario.nomeCartao);
+    cy.safeType(CartLocators.cardNumber, usuario.numeroCartao);
+    cy.safeType(CartLocators.cvc, usuario.cvc);
+    cy.safeType(CartLocators.expiryMonth, usuario.mesValidade);
+    cy.safeType(CartLocators.expiryYear, usuario.anoValidade);
   }
 
   confirmarPagamento() {
-    cy.get('[data-qa="pay-button"]').click();
+    cy.safeClick(CartLocators.payButton);
   }
 
   validarCompraRealizada() {
-    cy.contains("Order Placed!").should("be.visible");
+    cy.contains(CartLocators.orderPlaced)
+      .should("be.visible");
   }
 }
 

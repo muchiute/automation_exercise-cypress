@@ -1,18 +1,21 @@
 {
-  "name": "autcypress",
+  "name": "automation-exercise-cypress",
   "version": "1.0.0",
+  "description": "Framework de automação web e API utilizando Cypress e Cucumber",
   "main": "index.js",
   "scripts": {
-  "test:headless": "cypress run",
-  "test": "cypress open",
-  "test:login": "cypress run --env tags='@login'",
-  "test:api": "cypress run --env tags='@api'",
-  "test:smoke": "cypress run --env tags='@smoke'",
-  "generate-report": "npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports/final"
-},
-  "author": "",
-  "license": "ISC",
-  "description": "",
+    "test:headless": "cypress run",
+    "test": "cypress open",
+    "test:login": "cypress run --env tags='@login'",
+    "test:api": "cypress run --env tags='@api'",
+    "test:smoke": "cypress run --env tags='@smoke'",
+    "generate-report": "npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports/final"
+  },
+  "author": "Lucas Muchiute",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
     "cypress": "^13.13.2",

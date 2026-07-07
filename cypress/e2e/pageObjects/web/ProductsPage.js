@@ -1,39 +1,33 @@
-class ProductsPage {
+import { ProductsLocators } from "./locators/ProductsLocators";
 
+class ProductsPage {
   acessarProdutos() {
     cy.visit("/");
-    cy.contains("a", "Products", { timeout: 10000 })
+
+    cy.contains("a", ProductsLocators.productsMenu, { timeout: 10000 })
       .should("be.visible")
       .click();
   }
 
   buscarProduto(produto) {
-    cy.get("#search_product")
-      .should("be.visible")
-      .clear()
-      .type(produto);
+    cy.safeType(ProductsLocators.searchInput, produto);
 
-    cy.get("#submit_search")
-      .should("be.visible")
-      .click();
+    cy.safeClick(ProductsLocators.searchButton);
   }
 
   validarProduto(produto) {
-    cy.contains(produto)
-      .should("be.visible");
+    cy.contains(produto).should("be.visible");
   }
 
   adicionarPrimeiroProduto() {
-    cy.contains("Add to cart")
+    cy.contains(ProductsLocators.addToCart)
       .first()
       .should("be.visible")
       .click();
   }
 
   visualizarCarrinho() {
-    cy.contains("View Cart")
-      .should("be.visible")
-      .click();
+    cy.contains(ProductsLocators.viewCart).should("be.visible").click();
   }
 }
 
