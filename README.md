@@ -65,9 +65,9 @@ Antes de executar o projeto, é necessário ter instalado:
 
 ## 🚀 Instalação do projeto
 
-git clone https://github.com/muchiute/automation_exercise-cypress.git
-cd automation_exercise-cypress
-npm install
+- git clone https://github.com/muchiute/automation_exercise-cypress.git
+- cd automation_exercise-cypress
+- npm install
 
 ## Comandos para execução dos testes
 
