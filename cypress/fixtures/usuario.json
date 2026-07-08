@@ -1,5 +1,8 @@
 {
   "email": "teste2021@teste.com.br",
   "senha": "teste",
-  "produto": "Blue Top"
+  "produto": "Blue Top",
+  "precoProduto": "Rs. 500",
+  "quantidade": "1",
+  "subtotal": "Rs. 500"
 }

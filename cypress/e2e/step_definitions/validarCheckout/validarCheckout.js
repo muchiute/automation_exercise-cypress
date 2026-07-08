@@ -20,8 +20,11 @@ When("adiciono produto ao carrinho e sigo para checkout", function () {
   });
 });
 
-Then("o produto deve aparecer no checkout", function () {
+Then("o produto deve aparecer no checkout com dados corretos", function () {
   cy.fixture("usuario").then((usuario) => {
     CartPage.validarProdutoCarrinho(usuario.produto);
+    CartPage.validarProdutoPreco(usuario.precoProduto);
+    CartPage.validarQuantidade(usuario.quantidade);
+    CartPage.validarSubtotal(usuario.subtotal);
   });
 });

@@ -7,6 +7,14 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = defineConfig({
+
+  // Evidências
+  video: process.env.VIDEO !== "false",
+  videoCompression:
+    process.env.VIDEO_COMPRESSION === "false"
+      ? false
+      : Number(process.env.VIDEO_COMPRESSION) || 32,
+
   e2e: {
     // Base URL configurável
     baseUrl:
@@ -19,23 +27,30 @@ module.exports = defineConfig({
         "https://api.trello.com/1/actions/592f11060f95a3d3d46a987a",
 
       // Tags do Cucumber
-      tags: process.env.TAGS || ""
+      tags: process.env.TAGS || "",
     },
 
     // Timeouts parametrizáveis
-    defaultCommandTimeout: Number(process.env.DEFAULT_COMMAND_TIMEOUT) || 10000,
-    requestTimeout: Number(process.env.REQUEST_TIMEOUT) || 10000,
-    responseTimeout: Number(process.env.RESPONSE_TIMEOUT) || 30000,
-    pageLoadTimeout: Number(process.env.PAGE_LOAD_TIMEOUT) || 60000,
+    defaultCommandTimeout:
+      Number(process.env.DEFAULT_COMMAND_TIMEOUT) || 10000,
+    requestTimeout:
+      Number(process.env.REQUEST_TIMEOUT) || 10000,
+    responseTimeout:
+      Number(process.env.RESPONSE_TIMEOUT) || 30000,
+    pageLoadTimeout:
+      Number(process.env.PAGE_LOAD_TIMEOUT) || 60000,
 
     // Retries (útil para CI)
     retries: {
       runMode: Number(process.env.RUN_RETRIES) || 2,
-      openMode: Number(process.env.OPEN_RETRIES) || 0
+      openMode: Number(process.env.OPEN_RETRIES) || 0,
     },
 
-    viewportWidth: Number(process.env.VIEWPORT_WIDTH) || 1280,
-    viewportHeight: Number(process.env.VIEWPORT_HEIGHT) || 720,
+    viewportWidth:
+      Number(process.env.VIEWPORT_WIDTH) || 1280,
+
+    viewportHeight:
+      Number(process.env.VIEWPORT_HEIGHT) || 720,
 
     specPattern: "cypress/e2e/**/*.feature",
 

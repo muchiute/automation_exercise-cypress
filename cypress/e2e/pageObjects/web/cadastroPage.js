@@ -1,29 +1,45 @@
 import { CadastroLocators } from "./locators/CadastroLocators";
 
 class CadastroPage {
+
   acessarSite() {
     cy.visit("/");
+
+    cy.url()
+      .should("include", "automationexercise");
   }
+
 
   clicarSignupLogin() {
     cy.contains(CadastroLocators.signupLogin)
       .should("be.visible")
       .click();
+
+    cy.url()
+      .should("include", "/login");
   }
+
 
   preencherNome(nome) {
     cy.safeType(CadastroLocators.signupName, nome);
   }
 
+
   preencherEmail(email) {
     cy.safeType(CadastroLocators.signupEmail, email);
   }
 
+
   clicarSignup() {
     cy.safeClick(CadastroLocators.signupButton);
+
+    cy.url()
+      .should("include", "/signup");
   }
 
+
   preencherFormulario(usuario) {
+
     cy.get(CadastroLocators.genderMale)
       .should("be.visible")
       .check();
@@ -47,11 +63,17 @@ class CadastroPage {
     cy.safeType(CadastroLocators.mobile, usuario.mobile);
   }
 
+
   clicarCriarConta() {
     cy.safeClick(CadastroLocators.createAccount);
   }
 
+
   validarContaCriada() {
+
+    cy.url()
+      .should("include", "/account_created");
+
     cy.contains(CadastroLocators.accountCreated)
       .should("be.visible");
   }

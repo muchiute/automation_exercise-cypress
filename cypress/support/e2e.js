@@ -15,13 +15,18 @@ beforeEach(() => {
 });
 
 afterEach(function () {
-  // Captura screenshot apenas em caso de falha
-  if (this.currentTest.state === "failed") {
-    cy.screenshot(
-      `FAIL - ${Cypress.spec.name} - ${this.currentTest.title}`,
-      {
-        capture: "runner",
-      }
-    );
+  const status = this.currentTest.state;
+  const nomeTeste = `${Cypress.spec.name} - ${this.currentTest.title}`;
+
+  if (status === "passed") {
+    cy.screenshot(`PASS - ${nomeTeste}`, {
+      capture: "runner",
+    });
+  }
+
+  if (status === "failed") {
+    cy.screenshot(`FAIL - ${nomeTeste}`, {
+      capture: "runner",
+    });
   }
 });

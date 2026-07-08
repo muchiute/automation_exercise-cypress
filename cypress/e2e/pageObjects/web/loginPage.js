@@ -1,21 +1,29 @@
 import { LoginLocators } from "./locators/LoginLocators";
 
 class LoginPage {
+
   acessarLogin() {
     cy.visit("/login");
+
+    cy.url()
+      .should("include", "/login");
   }
+
 
   informarEmail(email) {
     cy.safeType(LoginLocators.email, email);
   }
 
+
   informarSenha(senha) {
     cy.safeType(LoginLocators.password, senha);
   }
 
+
   clicarEntrar() {
     cy.safeClick(LoginLocators.loginButton);
   }
+
 
   realizarLogin(email, senha) {
     this.informarEmail(email);
@@ -23,7 +31,12 @@ class LoginPage {
     this.clicarEntrar();
   }
 
+
   validarLogin() {
+
+    cy.url()
+      .should("include", "/");
+
     cy.contains(LoginLocators.loggedUser)
       .should("be.visible");
   }
