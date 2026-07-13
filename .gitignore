@@ -13,7 +13,7 @@ pnpm-debug.log*
 cypress/screenshots/
 cypress/videos/
 cypress/reports/
-
+cypress/logs
 # Cache do Cypress
 cypress/cache/
 cypress/downloads/
